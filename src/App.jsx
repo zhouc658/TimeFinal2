@@ -63,10 +63,19 @@ function App() {
 
   if (currentPage === "planner") {
     return (
-      <div>
+      <div
+        className="background"
+        style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", height: "100vh"}}
+      >
         <h1>Welcome to Your Life Planner!</h1>
         <p>Let's start planning your day! Click on a task to decide what you want to do.</p>
-        <button onClick={() => setCurrentPage("Task1")}>Task 1</button>
+        <button onClick={() => {
+          if (!task1Locked) {
+            setCurrentPage("Task1");
+          } else {
+            alert("Task 1 is locked. Explore the world instead!");
+          }
+        }}>Task 1</button>
         <button onClick={() => setCurrentPage("Task2")}>Task 2</button>
         <button onClick={() => setCurrentPage("Task3")}>Task 3</button>
       </div>
@@ -77,13 +86,11 @@ function App() {
 
     return (
       <div
-        className="page"
-        style={{ backgroundImage: `url(${background})` }}
       >
         <h2> What would you like to do right now?</h2>
         <button onClick={() => {
           setWorkCount(workCount + 1) //so we are updating the type of the task to this when they click this option, for our record for what ending they are picking later
-          setBackground("/asset/workBkg.png");
+          setBackground(`${base}/asset/workBkg.png`);
           setCurrentPage("Task1Time"); //and if they choose this option then we will go to the add time page
         }}>Yes, I'm going</button>
 
@@ -109,9 +116,21 @@ function App() {
 
         <button onClick={() => {
           setNoTime(noTime + 1)
-          // setCurrentPage
+          setTask1Locked(true);
+          setCurrentPage("planner");
+        }}>I don't need to add anymore time</button>
 
-        }}></button>
+        <button onClick={() => {
+          setNoTime(tenMin + 1)
+          setTask1Locked(true);
+          setCurrentPage("planner");
+        }}>I think I need to 10 more min</button>
+
+        <button onClick={() => {
+          setNoTime(thirtyMin + 1);
+          setTask1Locked(true);
+          setCurrentPage("planner");
+        }}>I think I need to 10 more min</button>
       </div>
     )
   }
