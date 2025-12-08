@@ -1,0 +1,22 @@
+.clock {
+  position: absolute;
+  top: -10%;
+  left: 40%;
+  transform-origin: top center;
+  display: block;
+  width: 300px;
+  animation: linear infinite alternate;
+  animation-name: clockSwing;
+  animation-duration: 5s;
+  
+}
+
+@keyframes clockSwing {
+  0% {
+    transform: rotate(-30deg);
+  }
+
+  100% {
+    transform: rotate(30deg);
+  }
+}
