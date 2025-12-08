@@ -7,17 +7,27 @@ import './App.css'
 function App() {
   const [currentPage, setCurrentPage] = useState("clock") //we start with the clock loading page for this world, and then intro, planner, tasks, ending
   const [tasks, setTasks] = useState(0) //the amount of tasks they did, start from 0
+  const [task1Locked, setTask1Locked] = useState(false)//lock the task so that they can no longer make a change to their choices
+  const [task2Locked, setTask2Locked] = useState(false)
+  const [task3Locked, setTask3Locked] = useState(false)
   const [addedTime, setAddedTime] = useState(0); //the amount of time users decide to add for a task
+  const [background, setBackground] = useState(null);
 
-  const [workcount, setworkcount] = useState(0);
 
+  const [workCount, setWorkCount] = useState(0);
+  const [socialCount, setSocialCount] = useState(0);
+  const [personalCount, setPersonalCount] = useState(0);
+
+  const [noTime, setNoTime] = useState(0);
+  const [tenMin, setTenMin] = useState(0);
+  const [thirtyMin, setThirtyMin] = useState(0);
 
   if (currentPage === "clock") {
     return (
       <div onClick={() => setCurrentPage("intro")}>
         <img
           className="clock"
-          src={`${base}/asset/clock.png`}
+          src={`${base}/asset/openClock.png`}
         />
       </div>
     )
@@ -33,44 +43,78 @@ function App() {
           There’s no right or wrong—only the consequences of your choices. Make them carefully… and have a good time here.
         </p>
 
-        <button onClick={() => setCurrentPage("planner")}>Start</button>
+        <button onClick={() => setCurrentPage("plannerCover")}>Start</button>
       </div>
     )
   }
 
-  if (currentPage === "planner"){
-    return(
+  if (currentPage === "plannerCover") {
+    return (
+      <div>
+        <img
+          src={`${base}/asset/planner.png`}
+          className="planner"
+          onClick={() => setCurrentPage("planner")}
+        />
+        <p>Click to open your life planner</p>
+      </div>
+    )
+  }
+
+  if (currentPage === "planner") {
+    return (
       <div>
         <h1>Welcome to Your Life Planner!</h1>
         <p>Let's start planning your day! Click on a task to decide what you want to do.</p>
         <button onClick={() => setCurrentPage("Task1")}>Task 1</button>
-        <button onClick={()=> setCurrentPage("Task2")}>Task 2</button>
-        <button onClick={()=> setCurrentPage("Task3")}>Task 3</button>
+        <button onClick={() => setCurrentPage("Task2")}>Task 2</button>
+        <button onClick={() => setCurrentPage("Task3")}>Task 3</button>
       </div>
     )
   }
 
-  if (currentPage === "Task1"){
-    
+  if (currentPage === "Task1") {
+
     return (
-      <div>
+      <div
+        className="page"
+        style={{ backgroundImage: `url(${background})` }}
+      >
         <h2> What would you like to do right now?</h2>
-        <p> you plan to work on your eassay</p> 
-        <button onClick = {()=> {
-           //so we are updating the type of the task to this when they click this option, for our record for what ending they are picking later
-          setworkcount ([...workcount, workcount + 1])
-          
+        <button onClick={() => {
+          setWorkCount(workCount + 1) //so we are updating the type of the task to this when they click this option, for our record for what ending they are picking later
+          setBackground("/asset/workBkg.png");
           setCurrentPage("Task1Time"); //and if they choose this option then we will go to the add time page
         }}>Yes, I'm going</button>
-        <button onClick = {()=>{
+
+        <button onClick={() => {
+          setSocialCount(socialCount + 1)
+          setBackground("/asset/socialBkg.png");
+          setCurrentPage("Task1Time");
+        }}>I want to hangout with my friends first</button>
+
+        <button onClick={() => {
+          setPersonalCount(personalCount + 1)
+          setBackground("/asset/personalBkg.png");
+          setCurrentPage("Task1Time");
+        }}></button>
+      </div>
+    )
+  }
+
+  if (currentPage === "Task1Time") {
+    return (
+      <div>
+        <h2>How much extra time would you like to add?</h2>
+
+        <button onClick={() => {
+          setNoTime(noTime + 1)
+          // setCurrentPage
 
         }}></button>
       </div>
     )
   }
 }
-//if(currentPage === "Task1Time")
-//so now we are going to create the page for adding the time, so like a button for adding the time, and we need the setAddedTime and decide what page will be next
-//how do you like make a popup page
-// how do you make the clock fadein and out 
+
 export default App
