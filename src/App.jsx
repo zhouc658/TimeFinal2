@@ -204,7 +204,7 @@ function App() {
           //so we are updating the type of the task to this when they click this option, for our record for what ending they are picking later
           setWorkCount(workCount + 1)
           setBackground(`${base}/asset/workBkg.png`);
-          setCurrentPage("Task1Time"); //and if they choose this option then we will go to the add time page
+          setCurrentPage("workTask1Time"); //and if they choose this option then we will go to the add time page
         }}>Open laptop and start writing</button>
 
         <button onClick={() => {
@@ -222,7 +222,7 @@ function App() {
     )
   }
 
-  if (currentPage === "Task1Time") {
+  if (currentPage === "workTask1Time") {
     return (
       <div>
         <p>The sunlight has shifted across your desk, an hour has passed, and your notes are scattered with half-formed ideas. Do you push on a bit longer or take a pause?</p>
@@ -242,7 +242,7 @@ function App() {
           setThirtyMin(thirtyMin + 1);
           setTask1Locked(true);
           bkgSound();
-        }}>Lose myself in it for another 30 minutes</button>
+        }}>I can keep going, try to finish as much as I can.</button>
 
         <button onClick={() => {
           setTasks(tasks + 1);
@@ -260,19 +260,49 @@ function App() {
         <button onClick={() => {
           setNoTime(noTime + 1)
           setTask1Locked(true);
-        }}>I'll work on this another day</button>
+        }}>Ahh I should really get back to what I was doing…</button>
 
         <button onClick={() => {
           setTenMin(tenMin + 1)
           setTask1Locked(true);
           bkgSound();
-        }}>I'll push through a bit more, like 15min?'</button>
+        }}>I think I'll just play one round, then I’ll go.</button>
 
         <button onClick={() => {
           setThirtyMin(thirtyMin + 1);
           setTask1Locked(true);
           bkgSound();
-        }}>Lose myself in it for another 30 minutes</button>
+        }}>Fine, I’ll join for a while. I can always work on my essay later.</button>
+
+        <button onClick={() => {
+          setTasks(tasks + 1);
+          setCurrentPage("planner");
+        }}>return to planner</button>
+      </div>
+    )
+  }
+
+  if (currentPage === "personalTask1Time") {
+    return (
+      <div>
+        <p>You open your sketchbook, letting your pencil drift without a plan.he first lines come out light and hesitant, then grow more certain as your hand settles into a rhythm. It feels good to make something without needing it to be anything.</p>
+
+        <button onClick={() => {
+          setNoTime(noTime + 1)
+          setTask1Locked(true);
+        }}>I think this is pretty good.</button>
+
+        <button onClick={() => {
+          setTenMin(tenMin + 1)
+          setTask1Locked(true);
+          bkgSound();
+        }}>Maybe I’ll add a few more lines… just enough to finish this corner.</button>
+
+        <button onClick={() => {
+          setThirtyMin(thirtyMin + 1);
+          setTask1Locked(true);
+          bkgSound();
+        }}>Can’t stop now, this is really coming together.</button>
 
         <button onClick={() => {
           setTasks(tasks + 1);
@@ -292,45 +322,84 @@ function App() {
           //so we are updating the type of the task to this when they click this option, for our record for what ending they are picking later
           setWorkCount(workCount + 1)
           setBackground(`${base}/asset/workBkg.png`);
-          setCurrentPage("Task2Time"); //and if they choose this option then we will go to the add time page
+          setCurrentPage("workTask2Time"); //and if they choose this option then we will go to the add time page
         }}>I'm going to let them know I gotta go, and we'll catch-up next time</button>
 
         <button onClick={() => {
           setSocialCount(socialCount + 1)
           setBackground(`${base}/asset/socialBkg.jpg`);
-          setCurrentPage("Task2Time");
+          setCurrentPage("socialTask2Time");
         }}>I'll stay a bit longer</button>
 
         <button onClick={() => {
           setPersonalCount(personalCount + 1)
           setBackground(`${base}/asset/personalBkg.jpg`);
-          setCurrentPage("Task2Time");
+          setCurrentPage("personalTask2Time");
         }}>I'm a bit tire, so I'll leave first and go home to take a nap</button>
       </div>
     )
   }
 
-  if (currentPage === "Task2Time") {
+  if (currentPage === "workTask2Time") {
     return (
       <div>
-        <h2>How much extra time would you like to add?</h2>
+        <p>You step inside your apartment, the warmth of home greeting you. Your desk is scattered with notes and half-finished drafts, sunlight catching the edges of your papers. The quiet feels heavier now, and the soft ticking of the clock reminds you the day is slowly slipping by.</p>
 
         <button onClick={() => {
           setNoTime(noTime + 1)
           setTask2Locked(true);
-        }}>I don't need to add anymore time</button>
+        }}>
+          I'm going to work on this tomorrow
+        </button>
+
+        <button onClick={() => {
+          setTenMin(tenMin + 1)
+          setTask2Locked(true);
+          bkgSound(tenMin + 1 + thirtyMin);
+        }}>
+          I'll focus on a section first, push to get some progress done.
+        </button>
+
+        <button onClick={() => {
+          setThirtyMin(thirtyMin + 1)
+          setTask2Locked(true);
+          bkgSound(tenMin + thirtyMin + 1);
+        }}>
+          I’ll settle in and work steadily, see how much I can get done before evening.
+        </button>
+
+        <button onClick={() => {
+          setTasks(tasks + 1);
+          setCurrentPage("planner");
+        }}>
+          Return to planner
+        </button>
+      </div>
+    )
+  }
+
+  if (currentPage === "socialTask2Time") {
+    return (
+      <div>
+        <p>The cafe hums around you, sunlight slanting across the table as the shadows stretch and mingle with the warmth of the room.</p>
+
+        <button onClick={() => {
+          setNoTime(noTime + 1)
+          setTask2Locked(true);
+        }}>I say goodbye to my friends and head back to my plans, the sounds of the cafe fading behind me </button>
 
         <button onClick={() => {
           setTenMin(tenMin + 1)
           setTask2Locked(true);
           bkgSound();
-        }}>I think I need to 10 more min</button>
+        }}>I chatted with my friends for a little longer, laughter and stories weaving around the fading light.</button>
 
         <button onClick={() => {
           setThirtyMin(thirtyMin + 1);
           setTask2Locked(true);
           bkgSound();
-        }}>I think I need 30 more min</button>
+        }}>I sink deeper into the moment, letting time slip by as the cafe warms around me and the afternoon stretches lazily toward evening
+        </button>
 
         <button onClick={() => {
           setTasks(tasks + 1);
@@ -340,34 +409,74 @@ function App() {
     )
   }
 
+  if (currentPage === "personalTask2Time") {
+    return (
+      <div>
+        <p>You arrive home feeling a bit worn out. Sunlight filters through the window, and the soft comfort of your bed beckons. Your sketchbook and journal sit nearby, half-forgotten, reminding you of ideas you might return to later. The day is slipping by, but a short rest could recharge you to keep creating afterward.</p>
+
+        <button onClick={() => {
+          setNoTime(noTime + 1)
+          setTask1Locked(true);
+        }}>
+          I lie down for a bit, letting the day settle around me
+        </button>
+
+        <button onClick={() => {
+          setTenMin(tenMin + 1)
+          setTask1Locked(true);
+          bkgSound(tenMin + 1 + thirtyMin);
+        }}>
+          I'll set a quick timer and take a brief nap to refresh myself
+        </button>
+
+        <button onClick={() => {
+          setThirtyMin(thirtyMin + 1)
+          setTask1Locked(true);
+          bkgSound(tenMin + thirtyMin + 1);
+        }}>
+          I'll just sleep and wake up naturally to fully recharge myself
+        </button>
+
+        <button onClick={() => {
+          setTasks(tasks + 1);
+          setCurrentPage("planner");
+        }}>
+          Return to planner
+        </button>
+      </div>
+    )
+  }
+
   if (currentPage === "Task3") {
     return (
       <div
       >
-        <h2> What would you like to do right now?</h2>
+        <p>
+          The afternoon light filters softly through your window. You’ve been juggling responsibilities all day, and your mind feels a little frayed. A quiet corner of your room calls to you—maybe it’s time to do something just for yourself.
+        </p>
         <button onClick={() => {
           //so we are updating the type of the task to this when they click this option, for our record for what ending they are picking later
           setWorkCount(workCount + 1)
           setBackground(`${base}/asset/workBkg.png`);
-          setCurrentPage("Task3Time"); //and if they choose this option then we will go to the add time page
-        }}>Yes, I'm going</button>
+          setCurrentPage("workTask3Time"); //and if they choose this option then we will go to the add time page
+        }}>I'll work on my project, stay focused on getting things done</button>
 
         <button onClick={() => {
           setSocialCount(socialCount + 1)
           setBackground(`${base}/asset/socialBkg.jpg`);
           setCurrentPage("Task3Time");
-        }}>I want to hangout with my friends first</button>
+        }}>Let's go to this event that is happening today</button>
 
         <button onClick={() => {
           setPersonalCount(personalCount + 1)
           setBackground(`${base}/asset/personalBkg.jpg`);
-          setCurrentPage("Task3Time");
-        }}></button>
+          setCurrentPage("personalTask3Time");
+        }}>I think I'll take a moment to unwind and focus on myself</button>
       </div>
     )
   }
 
-  if (currentPage === "Task3Time") {
+  if (currentPage === "workTask3Time") {
     return (
       <div>
         <h2>How much extra time would you like to add?</h2>
@@ -393,6 +502,79 @@ function App() {
           setTasks(tasks + 1);
           setCurrentPage("planner");
         }}>return to planner</button>
+      </div>
+    )
+  }
+
+  if (currentPage === "socialTask2Time") {
+    return (
+      <div>
+        <p>You mingle and watch a few presentations, occasionally chatting with other students with music softly playing in the background. You find yourself drawn into the activities. The day feels brighter here, surrounded by curiosity and movement.
+        </p>
+
+        <button onClick={() => {
+          setNoTime(noTime + 1)
+          setTask2Locked(true);
+        }}>I learned a lot today, and it is getting late, so I'll call it a day.</button>
+
+        <button onClick={() => {
+          setTenMin(tenMin + 1)
+          setTask2Locked(true);
+          bkgSound();
+        }}>I wander a bit longer, catching a few more talks and chatting with some students.
+        </button>
+
+        <button onClick={() => {
+          setThirtyMin(thirtyMin + 1);
+          setTask2Locked(true);
+          bkgSound();
+        }}>I decided to stay for the night events, moving from talk to talk and enjoying the buzz of the crowd well into the evening
+        </button>
+
+        <button onClick={() => {
+          setTasks(tasks + 1);
+          setCurrentPage("planner");
+        }}>return to planner</button>
+      </div>
+    )
+  }
+
+  if (currentPage === "personalTask3Time") {
+    return (
+      <div>
+        <p>
+          You settle into your favorite spot, the room quiet except for the soft glow of the screen. The episode starts, and you get drawn into the story, the outside world fading away as you immerse yourself in this little escape.
+        </p>
+
+        <button onClick={() => {
+          setNoTime(noTime + 1)
+          setTask3Locked(true);
+        }}>
+          I’ll just watch one episode.
+        </button>
+
+        <button onClick={() => {
+          setTenMin(tenMin + 1)
+          setTask3Locked(true);
+          bkgSound();
+        }}>
+        I’ll watch a bit more, and see what happens in the next episode.
+        </button>
+
+        <button onClick={() => {
+          setThirtyMin(thirtyMin + 1);
+          setTask3Locked(true);
+          bkgSound();
+        }}>
+          I stayed up the whole night and finished the whole drama. 
+        </button>
+
+        <button onClick={() => {
+          setTasks(tasks + 1);
+          setCurrentPage("planner");
+        }}>
+          Return to planner
+        </button>
       </div>
     )
   }
