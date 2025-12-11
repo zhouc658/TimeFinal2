@@ -7,8 +7,7 @@
   width: 300px;
   animation: linear infinite alternate;
   animation-name: clockSwing;
-  animation-duration: 5s;
-  
+  animation-duration: 2.5s;
 }
 
 @keyframes clockSwing {
@@ -19,4 +18,64 @@
   100% {
     transform: rotate(30deg);
   }
+}
+
+.clockFadeOut {
+  animation: fadeOutClock 15s forwards;
+}
+
+@keyframes fadeOutClock {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.introFadeIn {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px;
+  opacity: 0;
+
+  animation: fadeInIntro 1.5s forwards;
+  animation-delay: 12s;
+}
+
+@keyframes fadeInIntro {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.introContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 800px;
+  text-align: left;
+}
+
+.introClock {
+  width: 150px;
+  height: auto;
+}
+
+.clockNpc {
+  width: 150px;
+  height: auto;
 }
