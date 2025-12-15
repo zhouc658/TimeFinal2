@@ -13,6 +13,9 @@ clockSlow.loop = true;
 clockFade.loop = true;
 let currentAudio = clockSteady;
 
+
+
+
 function App() {
   const [currentPage, setCurrentPage] = useState("clock") //we start with the clock loading page for this world, and then intro, planner, tasks, ending
 
@@ -311,7 +314,7 @@ function App() {
             setTask1Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            setBackground(`${base}/asset/workBkg.png`);
+            // setBackground(`${base}/asset/workBkg.png`);
           }}>I'll work on this another day</button>
 
           <button onClick={() => {
