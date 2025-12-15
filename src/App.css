@@ -13,7 +13,6 @@ button:focus{
   left: 40%;
   /* to have the clock swing from the top point like actual hanging  */
   transform-origin: top center;
-  display: block;
   width: 300px;
   animation: linear infinite alternate;
   animation-name: clockSwing;
