@@ -125,7 +125,7 @@ function App() {
               src={`${base}/asset/openClock.png`}
             />
             <p>
-              Welcome to Your Life Pages. Here, you have control over your time. You can choose how long to spend on each moment or letting things flow naturally. With the help of your life planner, you’ll decide how to spend your day. You must complete at least three tasks, choosing what to do and how much time to devote to them. There’s no right or wrong, only the choices you make—and how they shape your day. Make them carefully… and enjoy your time here. Keep in mind that time is finite...
+              Welcome to Your Life Pages. Here, you have control over your time. You can choose how long to spend on each moment or letting things flow naturally. With the help of your life planner, you’ll decide how to spend your day. You must complete at least three tasks, choosing what to do and how much time to devote to them. There’s no right or wrong, only the choices you make, and how they shape your day. Make them carefully… and enjoy your time here. Keep in mind that time is finite...
             </p>
 
             <button
