@@ -39,7 +39,7 @@ function App() {
   const [artText, setartText] = useState(false);
 
   //function to decide which sound to play depending on the choices of time user picked
-  function bkgSound() {
+  function bkgSound(tenMin, thirtyMin) {
     const totalAddedTime = tenMin * 10 + thirtyMin * 30;
 
     if (currentAudio) {
@@ -48,7 +48,7 @@ function App() {
 
     if (totalAddedTime >= 60) {
       currentAudio = clockFade;
-    } else if (totalAddedTime >= 15) {
+    } else if (totalAddedTime >= 20) {
       currentAudio = clockSlow;
     } else {
       currentAudio = clockSteady;
@@ -315,19 +315,22 @@ function App() {
           }}>I'll work on this another day</button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin)
             setTask1Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+
+            bkgSound(newTenMin, thirtyMin);
           }}>I'll push through a bit more, like 15min?'</button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1);
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask1Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(tenMin, newThirtyMin);
           }}>I can keep going, try to finish as much as I can.</button>
 
           {/* <button onClick={() => {
@@ -360,19 +363,21 @@ function App() {
           }}>Ahh I should really get back to what I was doing…</button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin);            
             setTask1Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(newTenMin, thirtyMin);
           }}>I think I'll just play one round, then I’ll go.</button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1);
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask1Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(tenMin, newThirtyMin);
           }}>Fine, I’ll join for a while. I can always work on my essay later.</button>
 
           {/* <button onClick={() => {
@@ -405,19 +410,21 @@ function App() {
           }}>I think this is pretty good.</button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin);   
             setTask1Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(newTenMin, thirtyMin);
           }}>Maybe I’ll add a few more lines… just enough to finish this corner.</button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1);
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask1Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(tenMin, newThirtyMin);
           }}>Can’t stop now, this is really coming together.</button>
 
           {/* <button onClick={() => {
@@ -489,21 +496,23 @@ function App() {
           </button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin);   
             setTask2Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(newTenMin, thirtyMin);
           }}>
             I'll focus on a section first, push to get some progress done.
           </button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1)
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask2Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound(tenMin + thirtyMin + 1);
+            bkgSound(tenMin, newThirtyMin);
           }}>
             I’ll settle in and work steadily, see how much I can get done before evening.
           </button>
@@ -540,19 +549,21 @@ function App() {
           }}>I say goodbye to my friends and head back to my plans, the sounds of the cafe fading behind me </button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin);   
             setTask2Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(newTenMin, thirtyMin);
           }}>I chatted with my friends for a little longer, laughter and stories weaving around the fading light.</button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1);
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask2Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(tenMin, newThirtyMin);
           }}>I sink deeper into the moment, letting time slip by as the cafe warms around me and the afternoon stretches lazily toward evening
           </button>
           {/* 
@@ -587,21 +598,23 @@ function App() {
           </button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin);   
             setTask2Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(newTenMin, thirtyMin);
           }}>
             I'll set a quick timer and take a brief nap to refresh myself
           </button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1)
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask2Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound(tenMin + thirtyMin + 1);
+            bkgSound(tenMin, newThirtyMin);
           }}>
             I'll just sleep and wake up naturally to fully recharge myself
           </button>
@@ -675,19 +688,21 @@ function App() {
           }}>I'm finally done with this</button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin);   
             setTask3Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(newTenMin, thirtyMin);
           }}>I think I'll refine it just a bit more</button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1);
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask3Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(tenMin, newThirtyMin);
           }}>I'm going to look it through, label and organize all my reports </button>
 
           {/* <button onClick={() => {
@@ -721,20 +736,22 @@ function App() {
           }}>I learned a lot today, and it is getting late, so I'll call it a day.</button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin);   
             setTask3Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(newTenMin, thirtyMin);
           }}>I wander a bit longer, catching a few more talks and chatting with some students.
           </button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1);
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask3Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(tenMin, newThirtyMin);
           }}>I decided to stay for the night events, moving from talk to talk and enjoying the buzz of the crowd well into the evening
           </button>
 
@@ -770,21 +787,23 @@ function App() {
           </button>
 
           <button onClick={() => {
-            setTenMin(tenMin + 1)
+            const newTenMin = tenMin + 1;
+            setTenMin(newTenMin);   
             setTask3Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(newTenMin, thirtyMin);
           }}>
             I’ll watch a bit more, and see what happens in the next episode.
           </button>
 
           <button onClick={() => {
-            setThirtyMin(thirtyMin + 1);
+            const newThirtyMin = thirtyMin + 1;
+            setThirtyMin(newThirtyMin);
             setTask3Locked(true);
             setTasks(tasks + 1);
             setCurrentPage("planner");
-            bkgSound();
+            bkgSound(tenMin, newThirtyMin);
           }}>
             I stayed up the whole night and finished the whole drama.
           </button>
