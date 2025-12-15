@@ -677,7 +677,7 @@ function App() {
               className="Npc"
               src={`${base}/asset/openClock.png`}
             />
-            <h2>Your desk is cluttered with reports and data sheets. A challenging problem sits at the center of your mind, demanding attention. You adjust your chair, organize your workspace, and focus intently, letting logic and insight guide you toward a solution.</h2>
+            <p>Your desk is cluttered with reports and data sheets. A challenging problem sits at the center of your mind, demanding attention. You adjust your chair, organize your workspace, and focus intently, letting logic and insight guide you toward a solution.</p>
           </div>
 
           <button onClick={() => {
