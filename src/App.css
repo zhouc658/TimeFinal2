@@ -1,3 +1,7 @@
+body {
+  font-family: 'Garamond', serif;
+}
+ 
 /* removes the button outline */
 button:focus{
   outline: none; 
@@ -81,6 +85,7 @@ button:focus{
   align-items: flex-start;
   max-width: 700px;
   text-align: left;
+  text-align: justify;
 }
 
 .clockNpc {
